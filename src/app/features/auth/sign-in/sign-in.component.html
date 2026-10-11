@@ -1,0 +1,17 @@
+<main class="auth-page">
+  <section class="auth-story" aria-label="Qlic introduction"><div class="story-inner"><div class="story-logo"><mat-icon>water_drop</mat-icon> Qlic</div><p class="eyebrow">SMART WATER MANAGEMENT</p><h1>Every drop, under control.</h1><p>Monitor consumption, receive timely alerts and manage your water infrastructure from one clear workspace.</p><div class="story-metric"><strong>248 L</strong><span>Today’s monitored use</span></div></div></section>
+  <section class="auth-panel"><div class="auth-card">
+    <div class="mobile-brand"><span><mat-icon>water_drop</mat-icon></span><strong>Qlic</strong></div>
+    <div class="locale-switch" aria-label="Language"><button type="button" [class.active]="locale.locale() === 'en'" (click)="locale.setLocale('en')">EN</button><button type="button" [class.active]="locale.locale() === 'es-419'" (click)="locale.setLocale('es-419')">ES</button></div>
+    <p class="eyebrow">WELCOME BACK</p><h2>Welcome to Qlic</h2><p class="subtitle">Sign in to your water management dashboard</p>
+    @if (credentialsError) { <div class="error-banner" role="alert"><mat-icon>error_outline</mat-icon>{{ credentialsError }}</div> }
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label>Email address<span class="field"><mat-icon>mail_outline</mat-icon><input type="email" formControlName="email" placeholder="you@company.com" autocomplete="email" [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched" /></span></label>
+      @if (form.controls.email.touched && form.controls.email.invalid) { <small class="field-error">Enter a valid email address.</small> }
+      <label>Password<span class="field"><mat-icon>lock_outline</mat-icon><input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Enter your password" autocomplete="current-password" /><button type="button" class="password-toggle" aria-label="Show or hide password" (click)="showPassword = !showPassword"><mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon></button></span></label>
+      @if (form.controls.password.touched && form.controls.password.invalid) { <small class="field-error">Enter your password.</small> }
+      <div class="form-options"><label class="remember"><input type="checkbox" formControlName="remember" /> Remember me</label><a href="#">Forgot password?</a></div><button class="primary-button" type="submit">Sign in</button>
+    </form>
+    <p class="create-account">Don't have an account? <a routerLink="/create-account">Create account</a></p><div class="demo-note"><strong>Local demo</strong><span>demo&#64;qlic.com · Qlic2026!</span></div>
+  </div></section>
+</main>
