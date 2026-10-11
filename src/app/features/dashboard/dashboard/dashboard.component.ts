@@ -6,8 +6,9 @@ import { AlertsService } from '../../../core/services/alerts.service';
 import { QlicDataService } from '../../../core/services/qlic-data.service';
 import { MetricCardComponent } from '../../../shared/ui/metric-card/metric-card.component';
 import { StatusChipComponent } from '../../../shared/ui/status-chip/status-chip.component';
+import { TranslatePipe } from '../../../shared/i18n/translate.pipe';
 
-@Component({ selector: 'app-dashboard', imports: [MatIconModule, MetricCardComponent, RouterLink, StatusChipComponent], templateUrl: './dashboard.component.html', styleUrl: './dashboard.component.scss' })
+@Component({ selector: 'app-dashboard', imports: [MatIconModule, MetricCardComponent, RouterLink, StatusChipComponent, TranslatePipe], templateUrl: './dashboard.component.html', styleUrl: './dashboard.component.scss' })
 export class DashboardComponent {
   readonly data = inject(QlicDataService);
   readonly alerts = inject(AlertsService);

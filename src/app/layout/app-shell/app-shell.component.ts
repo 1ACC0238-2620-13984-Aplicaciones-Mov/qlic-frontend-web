@@ -5,10 +5,11 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { LocaleCode } from '../../core/models/qlic.models';
 import { LocaleService, TranslationKey } from '../../core/services/locale.service';
 import { SessionService } from '../../core/services/session.service';
+import { TranslatePipe } from '../../shared/i18n/translate.pipe';
 
 @Component({
   selector: 'app-app-shell',
-  imports: [MatIconModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [MatIconModule, RouterLink, RouterLinkActive, RouterOutlet, TranslatePipe],
   templateUrl: './app-shell.component.html',
   styleUrl: './app-shell.component.scss',
 })

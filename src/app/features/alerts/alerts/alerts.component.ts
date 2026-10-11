@@ -5,8 +5,9 @@ import { RouterLink } from '@angular/router';
 import { AlertFilter, AlertsService } from '../../../core/services/alerts.service';
 import { EmptyStateComponent } from '../../../shared/ui/empty-state/empty-state.component';
 import { StatusChipComponent } from '../../../shared/ui/status-chip/status-chip.component';
+import { TranslatePipe } from '../../../shared/i18n/translate.pipe';
 
-@Component({ selector: 'app-alerts', imports: [EmptyStateComponent, MatIconModule, RouterLink, StatusChipComponent], templateUrl: './alerts.component.html', styleUrl: './alerts.component.scss' })
+@Component({ selector: 'app-alerts', imports: [EmptyStateComponent, MatIconModule, RouterLink, StatusChipComponent, TranslatePipe], templateUrl: './alerts.component.html', styleUrl: './alerts.component.scss' })
 export class AlertsComponent {
   readonly service = inject(AlertsService);
   query = '';

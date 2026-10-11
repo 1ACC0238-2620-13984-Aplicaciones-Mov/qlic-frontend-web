@@ -5,13 +5,26 @@ import { LocaleService } from './locale.service';
 import { SessionService } from './session.service';
 
 describe('Qlic local services', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => {
+    localStorage.removeItem('qlic-locale');
+    TestBed.configureTestingModule({});
+  });
+
+  afterEach(() => localStorage.removeItem('qlic-locale'));
 
   it('starts in English and switches to Spanish', () => {
     const locale = TestBed.inject(LocaleService);
     expect(locale.locale()).toBe('en');
     locale.setLocale('es-419');
     expect(locale.translate('nav.dashboard')).toBe('Panel');
+  });
+
+  it('restores the selected locale after a reload', () => {
+    localStorage.setItem('qlic-locale', 'es-419');
+
+    const locale = new LocaleService();
+
+    expect(locale.locale()).toBe('es-419');
   });
 
   it('accepts the demo account and rejects invalid credentials', () => {

@@ -3,8 +3,9 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { QlicDataService } from '../../../core/services/qlic-data.service';
 import { StatusChipComponent } from '../../../shared/ui/status-chip/status-chip.component';
+import { TranslatePipe } from '../../../shared/i18n/translate.pipe';
 
-@Component({ selector: 'app-support', imports: [MatIconModule, ReactiveFormsModule, StatusChipComponent], templateUrl: './support.component.html', styleUrl: './support.component.scss' })
+@Component({ selector: 'app-support', imports: [MatIconModule, ReactiveFormsModule, StatusChipComponent, TranslatePipe], templateUrl: './support.component.html', styleUrl: './support.component.scss' })
 export class SupportComponent {
   private readonly formBuilder = inject(FormBuilder); readonly data = inject(QlicDataService); success = false;
   readonly form = this.formBuilder.nonNullable.group({ subject: ['', Validators.required], priority: ['Medium', Validators.required], description: ['', [Validators.required, Validators.minLength(10)]] });

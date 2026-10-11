@@ -5,8 +5,9 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { LocaleService } from '../../../core/services/locale.service';
 import { SessionService } from '../../../core/services/session.service';
+import { TranslatePipe } from '../../../shared/i18n/translate.pipe';
 
-@Component({ selector: 'app-sign-in', imports: [MatIconModule, ReactiveFormsModule, RouterLink], templateUrl: './sign-in.component.html', styleUrl: './sign-in.component.scss' })
+@Component({ selector: 'app-sign-in', imports: [MatIconModule, ReactiveFormsModule, RouterLink, TranslatePipe], templateUrl: './sign-in.component.html', styleUrl: './sign-in.component.scss' })
 export class SignInComponent {
   private readonly formBuilder = inject(FormBuilder);
   private readonly session = inject(SessionService);

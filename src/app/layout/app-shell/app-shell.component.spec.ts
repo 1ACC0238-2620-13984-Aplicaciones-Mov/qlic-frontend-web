@@ -7,6 +7,7 @@ describe('AppShellComponent', () => {
   let fixture: ComponentFixture<AppShellComponent>;
 
   beforeEach(async () => {
+    localStorage.removeItem('qlic-locale');
     await TestBed.configureTestingModule({
       imports: [AppShellComponent],
       providers: [provideRouter([])],
@@ -14,6 +15,8 @@ describe('AppShellComponent', () => {
     fixture = TestBed.createComponent(AppShellComponent);
     fixture.detectChanges();
   });
+
+  afterEach(() => localStorage.removeItem('qlic-locale'));
 
   it('renders the web navigation and notification badge', () => {
     expect(fixture.nativeElement.textContent).toContain('Dashboard');
