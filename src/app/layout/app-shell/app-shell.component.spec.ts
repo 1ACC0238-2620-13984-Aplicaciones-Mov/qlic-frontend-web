@@ -22,4 +22,9 @@ describe('AppShellComponent', () => {
     expect(fixture.nativeElement.textContent).toContain('Dashboard');
     expect(fixture.nativeElement.querySelector('[data-notification-count]')?.textContent).toContain('3');
   });
+
+  it('provides one main landmark and a skip link', () => {
+    expect(fixture.nativeElement.querySelectorAll('main#main-content').length).toBe(1);
+    expect(fixture.nativeElement.querySelector('.skip-link')?.getAttribute('href')).toBe('#main-content');
+  });
 });

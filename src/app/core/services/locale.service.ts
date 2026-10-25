@@ -34,7 +34,7 @@ export class LocaleService {
   }
 
   private readStoredLocale(): LocaleCode {
-    return localStorage.getItem(LOCALE_KEY) === 'es-419' ? 'es-419' : 'en';
+    return localStorage.getItem(LOCALE_KEY) === 'es-419' ? 'es-419' : 'en-US';
   }
 
   private applyDocumentLocale(locale: LocaleCode): void {

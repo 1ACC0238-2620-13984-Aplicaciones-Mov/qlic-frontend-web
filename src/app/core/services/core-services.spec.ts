@@ -14,9 +14,18 @@ describe('Qlic local services', () => {
 
   it('starts in English and switches to Spanish', () => {
     const locale = TestBed.inject(LocaleService);
-    expect(locale.locale()).toBe('en');
+    expect(locale.locale()).toBe('en-US');
     locale.setLocale('es-419');
     expect(locale.translate('nav.dashboard')).toBe('Panel');
+  });
+
+  it('migrates the previous English locale identifier', () => {
+    localStorage.setItem('qlic-locale', 'en');
+
+    const locale = new LocaleService();
+
+    expect(locale.locale()).toBe('en-US');
+    expect(document.documentElement.lang).toBe('en-US');
   });
 
   it('restores the selected locale after a reload', () => {

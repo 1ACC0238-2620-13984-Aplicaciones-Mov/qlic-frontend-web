@@ -8,12 +8,12 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app shell', () => {
+  it('should leave page landmarks to routed screens', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('[data-app-shell]')).toBeTruthy();
+    expect(fixture.nativeElement.querySelectorAll('#main-content').length).toBe(0);
   });
 
   it(`should have the 'Qlic Web App' title`, () => {

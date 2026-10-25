@@ -1,4 +1,4 @@
-export type LocaleCode = 'en' | 'es-419';
+export type LocaleCode = 'en-US' | 'es-419';
 export type AlertSeverity = 'high' | 'medium' | 'low';
 export type AlertStatus = 'open' | 'acknowledged';
 
