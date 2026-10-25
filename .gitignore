@@ -37,8 +37,7 @@ yarn-error.log
 testem.log
 /typings
 
-# Local planning and validation workspace
-.superpowers/
+# Local cache
 .cache/
 
 # System files
