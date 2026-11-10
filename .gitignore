@@ -39,6 +39,13 @@ testem.log
 
 # Local cache
 .cache/
+/.firebase/
+firebase-debug.log*
+
+# Local environments and credentials
+.env*
+!.env.example
+*service-account*.json
 
 # System files
 .DS_Store

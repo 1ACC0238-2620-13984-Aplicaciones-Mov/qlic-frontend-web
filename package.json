@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:hosting": "node --test scripts/firebase-config.test.mjs",
+    "deploy:hosting": "npm run build && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {

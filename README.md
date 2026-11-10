@@ -6,6 +6,7 @@ Responsive Angular web application for monitoring water consumption, active aler
 
 - Node.js 20.19+, 22.12+, or 24+
 - npm 10 or newer
+- Firebase CLI 15 or newer (only for deployment)
 
 ## Technology stack
 
@@ -34,9 +35,24 @@ The application currently uses deterministic local data so the complete interfac
 
 ```bash
 npm test -- --watch=false --browsers=ChromeHeadless
+npm run test:hosting
 npm run build
 npm audit --omit=dev --audit-level=high
 ```
+
+## Production deployment
+
+The web application is published with Firebase Hosting at:
+
+- [https://qlic-frontend-web-13984.web.app](https://qlic-frontend-web-13984.web.app)
+
+To build and deploy the production version:
+
+```bash
+npm run deploy:hosting
+```
+
+The hosting configuration provides SPA route fallback, a restrictive Content Security Policy, HTTPS Strict Transport Security, clickjacking and MIME-sniffing protection, a restricted browser permissions policy, no-cache delivery for the application shell, and long-lived immutable caching for versioned assets. Production source maps and local credential files are excluded from publication.
 
 ## Main routes
 
